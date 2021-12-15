@@ -52,7 +52,6 @@ class CityWeather(var cityWeather: WeatherModel) : Fragment() {
         super.onViewCreated(view, savedInstanceState
         )
 
-        Error=view.findViewById(R.id.tv_error)
         DataWeather=view.findViewById(R.id.ll_data)
         TvCityCode=view.findViewById(R.id.tv_city_code)
         TvCityName=view.findViewById(R.id.tv_city_name)
@@ -62,8 +61,7 @@ class CityWeather(var cityWeather: WeatherModel) : Fragment() {
         ImageWeather=view.findViewById(R.id.img_weather_pictures)
 
 
-       // val cName=CityName
-//        viewmodel.getDataFromAPI(CityName)
+
         TvCityCode.text = cityWeather.sys.country
         TvCityName.text = cityWeather.name
 

@@ -17,13 +17,10 @@ class MainViewModel : ViewModel() {
     private val weatherApiService = WeatherAPIService()
     private val disposable = CompositeDisposable()
 
-    //val weather_error = MutableLiveData<Boolean>()
-  //  val weather_loading = MutableLiveData<Boolean>()
-
     fun getDataFromAPI(cityName: List<String>):MutableLiveData<List<WeatherModel>>{
         val weather_data = MutableLiveData<List<WeatherModel>>()
 
-       // weather_loading.value = true
+
 
             cityName.forEach{
         disposable.add(
@@ -34,24 +31,24 @@ class MainViewModel : ViewModel() {
 
                         override fun onSuccess(t: WeatherModel) {
                             var tempList: MutableList<WeatherModel> = arrayListOf()
-                              if (weather_data.value!=null) tempList = weather_data.value as MutableList<WeatherModel>
+                            if (weather_data.value!=null) tempList = weather_data.value as MutableList<WeatherModel>
                             tempList.add(t)
                             weather_data.value=tempList
-//                        weather_error.value = false
-//                        weather_loading.value = false
+                            Log.e(TAG, "weather_data: ${weather_data.value}" )
                             Log.d(TAG, "onSuccess: Success")
                         }
 
                         override fun onError(e: Throwable) {
-//                        weather_error.value = true
-//                        weather_loading.value = false
+
+                            Log.e(TAG, "weather_data error: ${weather_data.value}" )
                             Log.e(TAG, "onError: " + e)
+
                         }
 
                     }))
             }
 
-
+        Log.e(TAG, "weather_data Final: ${weather_data.value}" )
 return weather_data
     }
 

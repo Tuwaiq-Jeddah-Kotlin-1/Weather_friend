@@ -5,25 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_screen"
-    tools:context=".CityWeather">
+    tools:context=".ui.CityWeather">
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tv_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="error_message"
-            android:padding="15dp"
-            android:background="#4DFFFFFF"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_error"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="error_message"-->
+<!--            android:padding="15dp"-->
+<!--            android:background="#4DFFFFFF"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
 
 
@@ -95,25 +97,30 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:background="#4DFFFFFF"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:padding="15dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_margin="11dp"
+                        android:orientation="horizontal">
 
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/humidity"
                             android:text="Humidity" />
 
-
                         <TextView
+                            android:padding="15dp"
+                            android:layout_gravity="center"
+                            android:id="@+id/tv_humidity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Wind Speed" />
+                            android:text=":bilgi1" />
+
 
 
 
@@ -123,15 +130,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+
+                            android:text="Wind Speed"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/wind"/>
 
                         <TextView
-                            android:id="@+id/tv_humidity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=":bilgi1" />
-
-                        <TextView
+                            android:padding="15dp"
+                            android:layout_gravity="center"
                             android:id="@+id/tv_wind_speed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
