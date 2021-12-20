@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "705977893153",
+    "project_id": "weather-friend-77fdd",
+    "storage_bucket": "weather-friend-77fdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705977893153:android:38769a09cfbed503253e60",
+        "android_client_info": {
+          "package_name": "com.example.weather_friend1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705977893153-0o4u1on2arapvg42gnq3nnr3sv1mduu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrSjBAi6Pu4pNM_yqto7XSY_y4I670tDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705977893153-0o4u1on2arapvg42gnq3nnr3sv1mduu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
