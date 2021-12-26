@@ -1,6 +1,8 @@
 package com.example.weather_friend1.ui
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,19 +20,27 @@ import com.google.firebase.ktx.Firebase
 import com.mrcaracal.havadurumumrc.viewmodel.MainViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewmodel: MainViewModel
     private lateinit var SearchCitySheet: TextView
+
     val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         SearchCitySheet = findViewById(R.id.search_sheet)
-        var list = mutableListOf("Jeddah", "Landon","Kuwait City")
-       //  var new= intent.extras!!.getString("passselectedcountry")!!
+       var list = mutableListOf("Jeddah", "Landon","Kuwait City")
+
+try {
+  list.add(intent.getStringExtra("test")!!)
+}catch (e:Exception){
+    Log.d("Selected:", "Intent send list")
+
+}
 
 
         viewmodel = ViewModelProviders.of(this).get(MainViewModel::class.java)
@@ -49,8 +59,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        }
     }
+}
 
 
 
