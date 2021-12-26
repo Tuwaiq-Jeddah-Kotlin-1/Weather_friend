@@ -18,7 +18,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.example.weather_friend1.R
 import com.example.weather_friend1.WeatherModel
-import com.mrcaracal.havadurumumrc.viewmodel.MainViewModel
+
 
 
 

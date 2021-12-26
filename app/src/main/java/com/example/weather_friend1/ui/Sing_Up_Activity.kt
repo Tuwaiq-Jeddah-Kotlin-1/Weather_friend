@@ -12,9 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.weather_friend1.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+
 private const val TAG = "EmailPassword"
  const val EMAIL = "EMAIL"
  const val preference = "preference"

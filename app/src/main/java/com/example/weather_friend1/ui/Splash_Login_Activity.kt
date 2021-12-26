@@ -80,6 +80,7 @@ class Activity_Splash_Login : AppCompatActivity() {
                     Log.d(TAG, "signInWithEmail:success")
                     sharedPreferences.edit().putString(EMAIL, email).apply()
                     val i = Intent(this, MainActivity()::class.java)
+                        .putExtra("Email",email)
                     startActivity(i)
                     finish()
 

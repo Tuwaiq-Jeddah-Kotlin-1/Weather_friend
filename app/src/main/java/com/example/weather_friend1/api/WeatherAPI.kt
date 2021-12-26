@@ -3,9 +3,12 @@ package com.example.weather_friend1.api
 
 import com.example.weather_friend1.WeatherModel
 import io.reactivex.Single
+import retrofit2.http.Body
 
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
+import java.util.jar.Attributes
 
 interface WeatherAPI {
 
@@ -14,6 +17,7 @@ interface WeatherAPI {
         fun getData(
             @Query("q") cityName: String
         ): Single<WeatherModel>
+
 
 }
 

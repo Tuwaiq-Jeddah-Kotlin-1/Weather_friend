@@ -1,14 +1,22 @@
-package com.mrcaracal.havadurumumrc.viewmodel
+package com.example.weather_friend1.ui
 
+import android.app.Application
 import android.content.res.Resources
+import android.graphics.Canvas
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+
 import com.example.weather_friend1.R
 import com.example.weather_friend1.WeatherModel
+import com.example.weather_friend1.api.RemoteRepositoryImp
+import com.example.weather_friend1.api.UserDatabaseAPI
+import com.example.weather_friend1.api.UserDatabaseBuilder
 import com.example.weather_friend1.api.WeatherAPIService
+import com.example.weather_friend1.model_mock_api.MockAPIItem
+import com.example.weather_friend1.ui.AppRepo
+import com.example.weather_friend1.ui.CitesUser
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -21,10 +29,34 @@ import java.io.InputStreamReader
 
 private const val TAG = "MainViewModel"
 
-class MainViewModel : ViewModel() {
-
+class MainViewModel(context: Application) : AndroidViewModel(context) {
+    private val repo = AppRepo(context)
     private val weatherApiService = WeatherAPIService()
     private val disposable = CompositeDisposable()
+    private lateinit var remoteRepositoryImp : RemoteRepositoryImp
+
+  init {
+      var serviceInstance=UserDatabaseBuilder
+          .getRetroBuilder()
+          .create(UserDatabaseAPI::class.java)
+      remoteRepositoryImp=RemoteRepositoryImp(serviceInstance)
+  }
+
+    private var userAPIMutableLiveData=MutableLiveData<List<MockAPIItem>>()
+    private val userAPILiveData : LiveData<List<MockAPIItem>> get() =userAPIMutableLiveData
+
+
+fun getDataFromMockAPI() =viewModelScope.launch {
+   var result=remoteRepositoryImp.getAPIUser()
+    if (result.isSuccessful){
+        if (result.body() != null)
+        {
+            userAPIMutableLiveData.postValue(result.body())
+        }
+    }else{
+        Log.i("errMsg",result.message())
+    }
+}
 
     fun getDataFromAPI(cityName: List<String>): MutableLiveData<List<WeatherModel>> {
         val weather_data = MutableLiveData<List<WeatherModel>>()
@@ -62,6 +94,8 @@ class MainViewModel : ViewModel() {
     }
 
 
+
+
     fun newList(resources: Resources): LiveData<List<String>> {
         val list3 = resources.openRawResource(R.raw.city_list_line)
         val data: MutableLiveData<List<String>> = MutableLiveData<List<String>>()
@@ -79,5 +113,30 @@ class MainViewModel : ViewModel() {
         }
         return data
     }
+   fun getAllCites(): MutableLiveData<MutableList<CitesUser>> {
+        val cites = MutableLiveData<MutableList<CitesUser>>()
+        viewModelScope.launch {
+            cites.postValue(repo.getAllCites() as MutableList<CitesUser>?)
+        }
+        return cites
+    }
+
+
+    fun insertDB(citesUser: CitesUser) = viewModelScope.launch {
+        repo.InsertDB(citesUser)
+
+    }
+    fun updateData(citesUser: CitesUser) = viewModelScope.launch {
+        repo.UpdateCites(citesUser)
+
+    }
+    fun deletData(citesUser: CitesUser) = viewModelScope.launch {
+        repo.DeleteCites(citesUser)
+
+    }
+
+
+
+
 }
 

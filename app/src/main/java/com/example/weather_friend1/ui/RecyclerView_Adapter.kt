@@ -2,59 +2,67 @@ package com.example.weather_friend1.ui
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.example.weather_friend1.databinding.RecyclerviewRowBinding
+import com.example.weather_friend1.R
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class RecyclerView_Adapter(private var citesList: ArrayList<String>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
+class RecyclerView_Adapter(context: Context,private var citesList: ArrayList<String>, val VM:MainViewModel) :
+    RecyclerView.Adapter<CitesHolder>(), Filterable {
 
 
-    var citesFilterList = ArrayList<String>()
+    var citesFilterList =ArrayList<String>()
 
-    lateinit var mContext: Context
+        init {
+            citesFilterList=citesList
+        }
 
-    class CitesHolder(var viewBinding: RecyclerviewRowBinding) :
-        RecyclerView.ViewHolder(viewBinding.root)
+ var mContext=context
 
-    init {
-        citesFilterList = citesList
+//    class CitesHolder(var viewBinding: RecyclerviewRowBinding) :
+//        RecyclerView.ViewHolder(viewBinding.root)
+//
+//    init {
+//        citesFilterList = citesList
+//    }
+//override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskAdapter {
+//    val view = LayoutInflater.from(parent.context)
+//        .inflate(R.layout.recycle_view_item, parent, false)
+//    return TaskAdapter(view)
+//}
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CitesHolder {
+
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.recyclerview_row, parent, false)
+        return CitesHolder(view)
+
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding =
-            RecyclerviewRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        val sch = CitesHolder(binding)
-        mContext = parent.context
-        return sch
-    }
+    override fun onBindViewHolder(holder: CitesHolder, position: Int) {
 
-    override fun getItemCount(): Int {
-        return citesFilterList.size
-    }
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val citesHolder = holder as CitesHolder
-        citesHolder.viewBinding.selectCitesContainer.setBackgroundColor(Color.TRANSPARENT)
-
-        citesHolder.viewBinding.selectCitesText.setTextColor(Color.WHITE)
-        citesHolder.viewBinding.selectCitesText.text = citesFilterList[position]
+        holder.TextCity.text = citesFilterList[position]
+       // holder.container.setBackgroundColor(Color.TRANSPARENT)
 
         holder.itemView.setOnClickListener {
+            var CUser = CitesUser(cites = citesFilterList[position])
+            VM.insertDB(CUser)
 
             Log.d("Selected:", citesFilterList[position])
             val intent = Intent(mContext, MainActivity::class.java)
             intent.putExtra("test", citesFilterList[position])
             mContext.startActivity(intent)
         }
+
+    }
+
+    override fun getItemCount(): Int {
+        return citesFilterList.size
     }
 
 
@@ -88,5 +96,10 @@ class RecyclerView_Adapter(private var citesList: ArrayList<String>) :
 
         }
     }
+
+}
+class CitesHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    val TextCity: TextView = itemView.findViewById(R.id.select_cites_text)
+
 
 }

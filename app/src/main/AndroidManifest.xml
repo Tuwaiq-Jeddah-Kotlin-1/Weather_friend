@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.weather_friend1" >
+    package="com.example.weather_friend1">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,11 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Weather_Friend1"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.Settings_Activity"
+            android:exported="true" />
         <activity
             android:name=".ui.Search_Activity"
             android:exported="true" />
-
         <activity
             android:name=".ui.Forget_Password_Activity"
             android:exported="true" />
@@ -27,7 +29,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.Activity_Splash_Login"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
