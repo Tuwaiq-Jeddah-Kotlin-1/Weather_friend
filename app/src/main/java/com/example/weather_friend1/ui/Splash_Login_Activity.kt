@@ -10,12 +10,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.weather_friend1.BaseActivity
 import com.example.weather_friend1.R
 import com.google.firebase.auth.FirebaseAuth
 
 private const val TAG = "EmailPassword"
 
-class Activity_Splash_Login : AppCompatActivity() {
+class Activity_Splash_Login : BaseActivity() {
     private lateinit var TextSkip: TextView
     private lateinit var TextSinUp: TextView
     private lateinit var TextForgetPass: TextView
@@ -38,7 +39,7 @@ class Activity_Splash_Login : AppCompatActivity() {
         email = findViewById(R.id.etEmailLogin)
         password = findViewById(R.id.etPasswordLogin)
 
-        sharedPreferences = this.getSharedPreferences("preference", Context.MODE_PRIVATE)
+        sharedPreferences = this.getSharedPreferences("sp", Context.MODE_PRIVATE)
         val emailPref = sharedPreferences.getString("EMAIL", null)
 
         if (emailPref != null) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/select_cites_container"
     android:layout_width="match_parent"
-    android:layout_height="57dp"
-    android:background="@color/colorPrimaryDark"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
@@ -15,7 +15,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="United States 🇺🇸"
         android:textColor="@color/textHeadline"
         android:textSize="18sp" />
 

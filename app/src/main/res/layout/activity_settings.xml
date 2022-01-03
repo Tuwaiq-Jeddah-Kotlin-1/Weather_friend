@@ -48,7 +48,7 @@ android:orientation="vertical">
             android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete account"/>
+            android:text="@string/deleteAccount"/>
     </LinearLayout>
     <LinearLayout
         android:layout_marginTop="25dp"
@@ -57,53 +57,43 @@ android:orientation="vertical">
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/Language"
+            android:id="@+id/tvAppLocale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="Language"
-            android:textStyle="bold" />
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
-            android:id="@+id/spinnerLanguage"
-            android:layout_width="match_parent"
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAppLocale">
+            <RadioButton
+                android:id="@+id/op1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/op2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="mode"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:paddingStart="15dp"
-            android:id="@+id/spinnerMode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/result"/>
-    </LinearLayout>
 </LinearLayout>
 
     <Button
+        android:id="@+id/LogOut"
         android:layout_width="124dp"
         android:layout_height="53dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="35dp"
         android:background="@drawable/buttonstyle"
-        android:text="Logout"
+        android:text="@string/logout"
         android:textColor="#fff" />
 
 </LinearLayout>

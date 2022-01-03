@@ -64,8 +64,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="CITY CODE"
                             android:textSize="23sp" />
+<!--                            android:text="CITY CODE"-->
+
                         <TextView
                             android:id="@+id/tv_degree"
                             android:layout_width="114dp"
@@ -79,8 +80,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="CITY NAME"
                             android:textSize="17sp" />
+<!--                            android:text="CITY NAME"-->
+
 
                     </LinearLayout>
 
@@ -111,7 +113,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/humidity"
-                            android:text="Humidity" />
+                             />
 
                         <TextView
                             android:padding="15dp"
@@ -119,7 +121,7 @@
                             android:id="@+id/tv_humidity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=":bilgi1" />
+                             />
 
 
 
@@ -135,7 +137,7 @@
 
                         <ImageView
 
-                            android:text="Wind Speed"
+
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/wind"/>
@@ -146,7 +148,7 @@
                             android:id="@+id/tv_wind_speed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=":bilgi2" />
+                             />
 
 
                     </LinearLayout>

@@ -15,14 +15,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import androidx.viewpager.widget.ViewPager
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import com.example.weather_friend1.BaseActivity
+import com.example.weather_friend1.MyWork
 import com.example.weather_friend1.PageAdapter
 import com.example.weather_friend1.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.time.LocalDate
+import java.time.LocalTime
 import java.util.*
 
 const val LOCALE="language"
 const val DARKMOOD ="DARKMOOD"
-class MainActivity : AppCompatActivity() {
+class MainActivity :  BaseActivity() {
     private lateinit var viewmodel: MainViewModel
     private lateinit var AddCity: FloatingActionButton
     private lateinit var setting: ImageView
@@ -33,11 +39,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        sharedPreferences = this.getSharedPreferences("preference", Context.MODE_PRIVATE)
-     //   pef(sharedPreferences)
-
         AddCity = findViewById(R.id.search_City)
         setting = findViewById(R.id.setting)
+        val current = LocalTime.now()
+        Log.e("time","${current}")
+        sharedPreferences = this.getSharedPreferences("preference", Context.MODE_PRIVATE)
+
+        val request = OneTimeWorkRequestBuilder<MyWork>().build()
+//      AddCity.setOnClickListener{
+//
+//            WorkManager.getInstance(this).enqueue(request)
+//        }
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(request.id)
+            .observe(this, Observer {
+
+                val status: String = it.state.name
+                Toast.makeText(this,status, Toast.LENGTH_SHORT).show()
+            })
+
+        //pef(sharedPreferences)
+
+
         setting.setOnClickListener {
             val i = Intent(this, Settings_Activity()::class.java)
             startActivity(i)

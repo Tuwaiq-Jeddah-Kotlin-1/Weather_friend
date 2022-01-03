@@ -2,92 +2,110 @@ package com.example.weather_friend1.ui
 
 import android.app.Activity
 import android.content.SharedPreferences
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import com.example.weather_friend1.R
+import androidx.core.os.ConfigurationCompat
+import com.example.weather_friend1.*
 import java.lang.reflect.Array.get
+import java.util.*
 
-class Settings_Activity : AppCompatActivity() {
-    private lateinit var language: TextView
-    private lateinit var spinnerLanguage: Spinner
-    private lateinit var spinnerMode: Spinner
-    private lateinit var sharedPreferences: SharedPreferences
+class Settings_Activity : BaseActivity() {
+    private lateinit var firstLocaleCode: String
+    private lateinit var secondLocaleCode: String
+    private lateinit var currentSystemLocaleCode: String
+    private lateinit var AppLocat:TextView
+    private lateinit var radioGroup:RadioGroup
+    private lateinit var radioop1:RadioButton
+    private lateinit var radioop2:RadioButton
+    private lateinit var LogOut:Button
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-        language=findViewById(R.id.result)
-        spinnerLanguage=findViewById(R.id.spinnerLanguage)
-        spinnerMode=findViewById(R.id.spinnerMode)
-        val sharedPreferencesSettings = this.getSharedPreferences("preference", Activity.MODE_PRIVATE)
-        val language = sharedPreferencesSettings.getString("language", "en")
+        AppLocat=findViewById(R.id.tvAppLocale)
+        radioGroup=findViewById(R.id.radioGroup)
+        LogOut=findViewById(R.id.LogOut)
+        radioop1=findViewById(R.id.op1)
+        radioop2=findViewById(R.id.op2)
 
-        var optionLanguage="null"
-        var languageArray= arrayOf("er","en")
-        spinnerLanguage.adapter=ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,languageArray)
+        LogOut.setOnClickListener {
+            storage.setPreferredLogout()
+        }
 
-        spinnerLanguage.onItemSelectedListener=object :AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                optionLanguage=languageArray[position]
-                if (optionLanguage=="er"){
-                    sharedPreferences.edit().putString(LOCALE, "er").apply()
-                }else if (optionLanguage=="en"){
-                    sharedPreferences.edit().putString(LOCALE, "en").apply()
+
+        currentSystemLocaleCode = ConfigurationCompat.getLocales(Resources.getSystem().configuration).get(0).language
+
+        if(storage.getPreferredLocale() == LocaleUtil.OPTION_PHONE_LANGUAGE){
+            if(currentSystemLocaleCode in LocaleUtil.supportedLocales){
+                AppLocat.text = getString(R.string.phone_language, Locale(currentSystemLocaleCode).displayLanguage)
+            } else {
+
+                AppLocat.text = "English"
+            }
+        } else {
+            if(currentSystemLocaleCode == storage.getPreferredLocale()){
+                AppLocat.text = getString(R.string.phone_language, Locale(currentSystemLocaleCode).displayLanguage)
+            } else {
+                AppLocat.text = Locale(storage.getPreferredLocale()).displayLanguage
+            }
+        }
+
+
+
+        firstLocaleCode = if(currentSystemLocaleCode in LocaleUtil.supportedLocales){
+            currentSystemLocaleCode
+        } else {
+            if(storage.getPreferredLocale() == LocaleUtil.OPTION_PHONE_LANGUAGE){
+                //current system language is neither English nor my second language (for me Bangla)
+                "en"
+            } else {
+                storage.getPreferredLocale()
+            }
+        }
+        secondLocaleCode = getSecondLanguageCode()
+        initRadioButtonUI()
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.op1 -> {
+                    updateAppLocale(LocaleUtil.OPTION_PHONE_LANGUAGE)
+                    recreate()
+                }
+                R.id.op2 -> {
+                    updateAppLocale(secondLocaleCode)
+                    recreate()
                 }
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                optionLanguage="null"
-            }
-
         }
-        var optionMode="null"
-        var ModeArray= arrayOf("Dark","Lite")
+    }
 
-        spinnerMode.adapter=ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,ModeArray)
+    private fun getSecondLanguageCode(): String {
+        return if(firstLocaleCode == "en") "ar" else "en"
+    }
 
-        spinnerMode.onItemSelectedListener=object :AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                optionMode=ModeArray[position]
-
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                optionMode="null"
-            }
-
+    private fun initRadioButtonUI() {
+        if(currentSystemLocaleCode in LocaleUtil.supportedLocales){
+            radioop1.text = getString(R.string.phone_language, getLanguageNameByCode(firstLocaleCode))
+        } else {
+            radioop1.text = getLanguageNameByCode(firstLocaleCode)
         }
+        radioop2.text = getLanguageNameByCode(secondLocaleCode)
+        if(storage.getPreferredLocale() == secondLocaleCode) radioop2.isChecked = true
+        else radioop1.isChecked = true
+    }
 
-// localization
-//        engLangTV.setOnClickListener {
-//            GlobalScope.launch {
-//                engLangTV.startAnimation(scaleUp)
-//                delay(300)
-//            }
-//            mainActivity.setLocale(mainActivity,"en")
-//            preferences.edit().putString(LOCALE, "en").apply()
-//
-//        }
-//        arLangTV.setOnClickListener {
-//            GlobalScope.launch {
-//                arLangTV.startAnimation(scaleUp)
-//                delay(300)
-//            }
-//            mainActivity.setLocale(mainActivity,"ar")
-//            preferences.edit().putString(LOCALE, "ar").apply()
-//        }
+    private fun getLanguageNameByCode(code: String) : String{
+        val tempLocale = Locale(code)
+        return tempLocale.getDisplayLanguage(tempLocale)
+    }
 
+    private fun updateAppLocale(locale: String) {
+        storage.setPreferredLocale(locale)
+        LocaleUtil.applyLocalizedContext(applicationContext, locale)
     }
 }
+

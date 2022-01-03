@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="Register your account"
+            android:text="@string/registerYourAccount"
             android:textColor="@color/textHeadline"
             android:textSize="20sp" />
 
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:text="To make the most of application"
+            android:text="@string/toMakeTheMostOfApplication"
             android:textColor="@color/textDescription"
             android:textSize="14sp" />
 
@@ -85,7 +85,7 @@
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:drawableLeft="@drawable/ic_baseline_email_24"
             android:drawablePadding="16dp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:padding="16dp"
             android:textSize="14sp" />
@@ -101,7 +101,7 @@
             android:drawableEnd="@drawable/ic_baseline_visibility_24"
             android:drawableRight="@drawable/ic_baseline_visibility_24"
             android:drawablePadding="16dp"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="16dp"
             android:textSize="14sp" />
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@drawable/button_bg"
-            android:text="Sign Up"
+            android:text="@string/signUp"
             android:textColor="@color/white" />
 
     </LinearLayout>

@@ -10,13 +10,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.weather_friend1.BaseActivity
 import com.example.weather_friend1.R
 import com.google.firebase.auth.FirebaseAuth
 
 private const val TAG = "EmailPassword"
  const val EMAIL = "EMAIL"
  const val preference = "preference"
-class Sin_UpActivity : AppCompatActivity() {
+class Sin_UpActivity : BaseActivity() {
     private lateinit var GoTOLogin: TextView
     private lateinit var email: EditText
     private lateinit var password: EditText
@@ -32,7 +33,7 @@ class Sin_UpActivity : AppCompatActivity() {
         RegisterButton=findViewById(R.id.btRegister)
         email=findViewById(R.id.etEmailRegister)
         password=findViewById(R.id.etPasswordRegister)
-        sharedPreferences = this.getSharedPreferences(preference, Context.MODE_PRIVATE)
+        sharedPreferences = this.getSharedPreferences("sp", Context.MODE_PRIVATE)
         val emailPref = sharedPreferences.getString(EMAIL, null)
         GoTOLogin.setOnClickListener {
             val i = Intent(this,Activity_Splash_Login()::class.java)

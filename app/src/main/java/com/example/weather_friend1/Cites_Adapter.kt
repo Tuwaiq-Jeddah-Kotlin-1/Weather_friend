@@ -17,7 +17,7 @@ class Cites_Adapter(val context: Context,private val citesUserList: MutableList<
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): C_dapter {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycle_view_item, parent, false)
+            .inflate(R.layout.recyclerview_row, parent, false)
         return C_dapter(view)
     }
 
@@ -37,6 +37,7 @@ class Cites_Adapter(val context: Context,private val citesUserList: MutableList<
     }
 
     fun deletData(citesPosition: Int) {
+
         vm.deletData(citesUserList[citesPosition])
         citesUserList.removeAt(citesPosition)
         notifyItemRemoved(citesPosition)
@@ -46,7 +47,7 @@ class Cites_Adapter(val context: Context,private val citesUserList: MutableList<
 }
 
 class C_dapter(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-    val citesUserTv: TextView = itemView.findViewById(R.id.RcItem)
+    val citesUserTv: TextView = itemView.findViewById(R.id.select_cites_text)
 
 
     init {

@@ -46,74 +46,76 @@ class CityUserFragment : Fragment() {
 
 
         viewmodel.getAllCites().observe(viewLifecycleOwner, Observer {
-            recyclerView.adapter = Cites_Adapter(requireContext(),it,viewmodel)
+            adapter = Cites_Adapter(requireContext(),it,viewmodel)
+            recyclerView.adapter=adapter
+            val callback: ItemTouchHelper.SimpleCallback = object :
+                ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    adapter.deletData(viewHolder.adapterPosition)
+                    //recyclerView.adapter!!.notifyItemRemoved(viewHolder.position)
+                    //recyclerView.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
+
+                    recyclerView.adapter = adapter
+                    Toast.makeText(context,"deleted", Toast.LENGTH_SHORT).show()
+                }
 
 
+                override fun onChildDraw(
+                    c: Canvas,
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    dX: Float,
+                    dY: Float,
+                    actionState: Int,
+                    isCurrentlyActive: Boolean
+                ) {
+
+                    RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                        .addBackgroundColor(
+                            ContextCompat.getColor(
+                                requireContext(),
+                                android.R.color.holo_red_light
+                            )
+                        )
+                        .addActionIcon(R.drawable.ic_baseline_delete_sweep_24)
+                        .addSwipeRightLabel("Deleting the Item")
+                        .addSwipeLeftLabel("Deleting the Item")
+                        .setSwipeRightLabelColor(R.color.white)
+                        .setSwipeLeftLabelColor(R.color.white)
+                        .create()
+                        .decorate()
+
+
+
+
+                    super.onChildDraw(
+                        c,
+                        recyclerView,
+                        viewHolder,
+                        dX,
+                        dY,
+                        actionState,
+                        isCurrentlyActive
+                    )
+                }
+            }
+            val itemTouchHelper = ItemTouchHelper(callback)
+            itemTouchHelper.attachToRecyclerView(recyclerView)
 
         })
 
         recyclerView.layoutManager = LinearLayoutManager(context)
 
 
-        val callback: ItemTouchHelper.SimpleCallback = object :
-            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
 
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                adapter.deletData(viewHolder.adapterPosition)
-                //recyclerView.adapter!!.notifyItemRemoved(viewHolder.position)
-                //recyclerView.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
-                recyclerView.adapter = adapter
-                Toast.makeText(context,"deleted", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onChildDraw(
-                c: Canvas,
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                dX: Float,
-                dY: Float,
-                actionState: Int,
-                isCurrentlyActive: Boolean
-            ) {
-
-                RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                    .addBackgroundColor(
-                        ContextCompat.getColor(
-                            requireContext(),
-                            android.R.color.holo_red_light
-                        )
-                    )
-                    .addActionIcon(R.drawable.ic_baseline_delete_sweep_24)
-                    .addSwipeRightLabel("Deleting the Item")
-                    .addSwipeLeftLabel("Deleting the Item")
-                    .setSwipeRightLabelColor(R.color.white)
-                    .setSwipeLeftLabelColor(R.color.white)
-                    .create()
-                    .decorate()
-
-
-
-
-                super.onChildDraw(
-                    c,
-                    recyclerView,
-                    viewHolder,
-                    dX,
-                    dY,
-                    actionState,
-                    isCurrentlyActive
-                )
-            }
-        }
-        val itemTouchHelper = ItemTouchHelper(callback)
-        itemTouchHelper.attachToRecyclerView(recyclerView)
 
 
     }
