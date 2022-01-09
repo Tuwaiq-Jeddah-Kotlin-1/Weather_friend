@@ -10,13 +10,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import com.example.weather_friend1.BaseActivity
+import com.example.weather_friend1.MyWork
 import com.example.weather_friend1.R
 import com.google.firebase.auth.FirebaseAuth
+import java.util.concurrent.TimeUnit
 
 private const val TAG = "EmailPassword"
  const val EMAIL = "EMAIL"
- const val preference = "preference"
 class Sin_UpActivity : BaseActivity() {
     private lateinit var GoTOLogin: TextView
     private lateinit var email: EditText
@@ -32,17 +36,25 @@ class Sin_UpActivity : BaseActivity() {
         GoTOLogin=findViewById(R.id.tv_GoLogin)
         RegisterButton=findViewById(R.id.btRegister)
         email=findViewById(R.id.etEmailRegister)
+
         password=findViewById(R.id.etPasswordRegister)
-        sharedPreferences = this.getSharedPreferences("sp", Context.MODE_PRIVATE)
-        val emailPref = sharedPreferences.getString(EMAIL, null)
+
+        sharedPreferences = this.getSharedPreferences("Account", Context.MODE_PRIVATE)
         GoTOLogin.setOnClickListener {
             val i = Intent(this,Activity_Splash_Login()::class.java)
             startActivity(i)
         }
         RegisterButton.setOnClickListener {
         //check if empty before doing this line of code
+if (email.text.isEmpty()&&password.text.isEmpty()){
+    Toast.makeText(
+       this, getString(R.string.fill),
+        Toast.LENGTH_SHORT
+    ).show()
+}else{
+    createAccount(email.text.toString().trim(),password.text.toString().trim())
+}
 
-            createAccount(email.text.toString().trim(),password.text.toString().trim())
         }
 
     }
@@ -52,17 +64,23 @@ class Sin_UpActivity : BaseActivity() {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "createUserWithEmail:success")
+                    Log.d(TAG, getString(R.string.Success))
                     //store in sharedpreference
                     sharedPreferences.edit().putString(EMAIL,email).apply()
+                    val request = OneTimeWorkRequestBuilder<MyWork>().build()
+                    val periodicWorker = PeriodicWorkRequest
+                        .Builder(MyWork::class.java, 15, TimeUnit.SECONDS)
+                        .build()
+                    WorkManager.getInstance().enqueue(periodicWorker)
+                    WorkManager.getInstance(this).getWorkInfoByIdLiveData(periodicWorker.id)
                     val i = Intent(this,MainActivity()::class.java)
                     startActivity(i)
                     finish()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                    Log.w(TAG, getString(R.string.failure), task.exception)
                     Toast.makeText(
-                        baseContext, "Authentication failed.",
+                        baseContext, getString(R.string.Authentication),
                         Toast.LENGTH_SHORT
                     ).show()
 

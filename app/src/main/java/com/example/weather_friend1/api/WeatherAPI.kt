@@ -3,20 +3,19 @@ package com.example.weather_friend1.api
 
 import com.example.weather_friend1.WeatherModel
 import io.reactivex.Single
-import retrofit2.http.Body
 
 import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.Query
-import java.util.jar.Attributes
 
 interface WeatherAPI {
 
 
-        @GET("data/2.5/weather?&units=metric&APPID=4581e0cb455b9666721f4e5f7b85175e")
-        fun getData(
-            @Query("q") cityName: String
-        ): Single<WeatherModel>
+    @GET("data/2.5/weather?&units=metric&APPID=4581e0cb455b9666721f4e5f7b85175e")
+    fun getData(
+        @Query("q") cityName: String,
+    ): Single<WeatherModel>
+
+
 
 
 }

@@ -38,6 +38,18 @@
     <string name="toMakeTheMostOfApplication">مرحبا بك في صديق الطقس</string>
     <string name="signUp">تفعيل الحساب</string>
     <string name="skip"><![CDATA[تخطي->]]></string>
-    <string name="ListUser">قائمة المدن</string>
-    <string name="SearchCity">إبحث عن مدينة جديدة</string>
+    <string name="listUser">قائمة المدن</string>
+    <string name="searChCity">إبحث عن مدينة جديدة</string>
+    <string name="contact_us">Contact us</string>
+    <string name="fill">Please fill in the fields.</string>
+    <string name="Success">createUserWithEmail:success</string>
+    <string name="failure">createUserWithEmail:failure</string>
+    <string name="Authentication">Authentication failed.</string>
+    <string name="delete">deleted</string>
+    <string name="DeleteSwip">Delete</string>
+    <string name="enterEmailAddress">\"Please enter email address. \"</string>
+    <string name="uccessfullyToReset">\"Email sent successfully to reset your password! \"</string>
+    <string name="signInWithEmailSuccess">signInWithEmail:success</string>
+    <string name="coma">,</string>
+    <string name="Internet">Check Internet</string>
 </resources>

@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather_friend1.R
+import com.example.weather_friend1.viewmodel.MainViewModel
 
 
 class SearchCityFragment : Fragment() {
@@ -43,24 +44,25 @@ class SearchCityFragment : Fragment() {
          recyclerView.setHasFixedSize(true)
 
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-
-                adapterR.filter.filter(newText)
-                return false
-            }
-
-        })
 
 
         viewmodel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewmodel.newList(resources).observe(viewLifecycleOwner, {
                   adapterR= RecyclerView_Adapter(view.context,it as ArrayList<String>, viewmodel)
             recyclerView.adapter =adapterR
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    adapterR.filter.filter(newText)
+                    return false
+                }
+
+            })
 
         })
 

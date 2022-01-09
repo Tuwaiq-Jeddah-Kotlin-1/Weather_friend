@@ -5,15 +5,13 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-open class BaseActivity: AppCompatActivity() { //You can use your preferred activity instead of AppCompatActivity
+open class BaseActivity: AppCompatActivity() {
     private lateinit var oldPrefLocaleCode : String
     protected val storage : Storage by lazy {
         (application as MyApp).storage
     }
 
-    /**
-     * updates the toolbar text locale if it set from the android:label property of Manifest
-     */
+
     private fun resetTitle() {
         try {
             val label = packageManager.getActivityInfo(componentName, PackageManager.GET_META_DATA).labelRes;

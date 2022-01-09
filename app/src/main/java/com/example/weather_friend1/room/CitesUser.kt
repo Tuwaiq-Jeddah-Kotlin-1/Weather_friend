@@ -11,5 +11,6 @@ import androidx.room.PrimaryKey
 data class CitesUser(
     @PrimaryKey(autoGenerate = true) val id :Int=0,
     @ColumnInfo(name = "cites") var cites: String,
+    @ColumnInfo(name = "like") var like: Boolean=false,
 
     )

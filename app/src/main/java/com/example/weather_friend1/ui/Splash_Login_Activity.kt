@@ -39,7 +39,7 @@ class Activity_Splash_Login : BaseActivity() {
         email = findViewById(R.id.etEmailLogin)
         password = findViewById(R.id.etPasswordLogin)
 
-        sharedPreferences = this.getSharedPreferences("sp", Context.MODE_PRIVATE)
+        sharedPreferences = this.getSharedPreferences("Account", Context.MODE_PRIVATE)
         val emailPref = sharedPreferences.getString("EMAIL", null)
 
         if (emailPref != null) {
@@ -65,20 +65,30 @@ class Activity_Splash_Login : BaseActivity() {
             finish()
         }
         Login.setOnClickListener {
-            signIn(email.text.toString().trim(), password.text.toString().trim())
+            if (email.text.isEmpty()&&password.text.isEmpty())
+            {
+                Toast.makeText(
+                    this, getString(R.string.fill),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else
+            {
+                signIn(email.text.toString().trim(), password.text.toString().trim())
+            }
+
 
         }
 
 
     }
 
-    private fun signIn(email: String, password: String) {
+     fun signIn(email: String, password: String) {
         // [START sign_in_with_email]
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success")
+                    Log.d(TAG, getString(R.string.signInWithEmailSuccess))
                     sharedPreferences.edit().putString(EMAIL, email).apply()
                     val i = Intent(this, MainActivity()::class.java)
                         .putExtra("Email",email)
@@ -87,9 +97,9 @@ class Activity_Splash_Login : BaseActivity() {
 
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
+                    Log.w(TAG, getString(R.string.failure), task.exception)
                     Toast.makeText(
-                        baseContext, "Authentication failed.",
+                        baseContext,   getString(R.string.Authentication),
                         Toast.LENGTH_SHORT
                     ).show()
 
@@ -98,4 +108,5 @@ class Activity_Splash_Login : BaseActivity() {
 
     }
 
-}
+
+    }

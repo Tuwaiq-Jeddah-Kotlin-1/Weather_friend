@@ -8,12 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
+import com.example.weather_friend1.MyWork
 import com.example.weather_friend1.R
+import com.example.weather_friend1.viewmodel.MainViewModel
 import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 
-class RecyclerView_Adapter(context: Context,private var citesList: ArrayList<String>, val VM:MainViewModel) :
+class RecyclerView_Adapter(context: Context,private var citesList: ArrayList<String>, val VM: MainViewModel) :
     RecyclerView.Adapter<CitesHolder>(), Filterable {
 
 
@@ -25,17 +31,7 @@ class RecyclerView_Adapter(context: Context,private var citesList: ArrayList<Str
 
  var mContext=context
 
-//    class CitesHolder(var viewBinding: RecyclerviewRowBinding) :
-//        RecyclerView.ViewHolder(viewBinding.root)
-//
-//    init {
-//        citesFilterList = citesList
-//    }
-//override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskAdapter {
-//    val view = LayoutInflater.from(parent.context)
-//        .inflate(R.layout.recycle_view_item, parent, false)
-//    return TaskAdapter(view)
-//}
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CitesHolder {
 
         val view = LayoutInflater.from(parent.context)
@@ -47,7 +43,6 @@ class RecyclerView_Adapter(context: Context,private var citesList: ArrayList<Str
     override fun onBindViewHolder(holder: CitesHolder, position: Int) {
 
         holder.TextCity.text = citesFilterList[position]
-       // holder.container.setBackgroundColor(Color.TRANSPARENT)
 
         holder.itemView.setOnClickListener {
             var CUser = CitesUser(cites = citesFilterList[position])

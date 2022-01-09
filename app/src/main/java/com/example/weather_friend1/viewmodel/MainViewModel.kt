@@ -1,20 +1,16 @@
-package com.example.weather_friend1.ui
+package com.example.weather_friend1.viewmodel
 
 import android.app.Application
+import android.content.Context
 import android.content.res.Resources
-import android.graphics.Canvas
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.util.Log
 import androidx.lifecycle.*
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 
 import com.example.weather_friend1.R
 import com.example.weather_friend1.WeatherModel
-import com.example.weather_friend1.api.RemoteRepositoryImp
-import com.example.weather_friend1.api.UserDatabaseAPI
-import com.example.weather_friend1.api.UserDatabaseBuilder
 import com.example.weather_friend1.api.WeatherAPIService
-import com.example.weather_friend1.model_mock_api.MockAPIItem
 import com.example.weather_friend1.ui.AppRepo
 import com.example.weather_friend1.ui.CitesUser
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -33,30 +29,8 @@ class MainViewModel(context: Application) : AndroidViewModel(context) {
     private val repo = AppRepo(context)
     private val weatherApiService = WeatherAPIService()
     private val disposable = CompositeDisposable()
-    private lateinit var remoteRepositoryImp : RemoteRepositoryImp
-
-  init {
-      var serviceInstance=UserDatabaseBuilder
-          .getRetroBuilder()
-          .create(UserDatabaseAPI::class.java)
-      remoteRepositoryImp=RemoteRepositoryImp(serviceInstance)
-  }
-
-    private var userAPIMutableLiveData=MutableLiveData<List<MockAPIItem>>()
-    private val userAPILiveData : LiveData<List<MockAPIItem>> get() =userAPIMutableLiveData
 
 
-fun getDataFromMockAPI() =viewModelScope.launch {
-   var result=remoteRepositoryImp.getAPIUser()
-    if (result.isSuccessful){
-        if (result.body() != null)
-        {
-            userAPIMutableLiveData.postValue(result.body())
-        }
-    }else{
-        Log.i("errMsg",result.message())
-    }
-}
 
     fun getDataFromAPI(cityName: List<String>): MutableLiveData<List<WeatherModel>> {
         val weather_data = MutableLiveData<List<WeatherModel>>()
@@ -135,6 +109,16 @@ fun getDataFromMockAPI() =viewModelScope.launch {
 
     }
 
+    fun checkInternetConnection(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return when {
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            else -> false
+        }
+    }
 
 
 

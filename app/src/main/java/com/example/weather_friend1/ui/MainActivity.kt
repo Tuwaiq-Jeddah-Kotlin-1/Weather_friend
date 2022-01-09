@@ -21,18 +21,17 @@ import com.example.weather_friend1.BaseActivity
 import com.example.weather_friend1.MyWork
 import com.example.weather_friend1.PageAdapter
 import com.example.weather_friend1.R
+import com.example.weather_friend1.viewmodel.MainViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.LocalDate
 import java.time.LocalTime
 import java.util.*
 
-const val LOCALE="language"
-const val DARKMOOD ="DARKMOOD"
+
 class MainActivity :  BaseActivity() {
     private lateinit var viewmodel: MainViewModel
     private lateinit var AddCity: FloatingActionButton
     private lateinit var setting: ImageView
-    private lateinit var sharedPreferences: SharedPreferences
 
 
 
@@ -41,23 +40,7 @@ class MainActivity :  BaseActivity() {
         setContentView(R.layout.activity_main)
         AddCity = findViewById(R.id.search_City)
         setting = findViewById(R.id.setting)
-        val current = LocalTime.now()
-        Log.e("time","${current}")
-        sharedPreferences = this.getSharedPreferences("preference", Context.MODE_PRIVATE)
 
-        val request = OneTimeWorkRequestBuilder<MyWork>().build()
-//      AddCity.setOnClickListener{
-//
-//            WorkManager.getInstance(this).enqueue(request)
-//        }
-        WorkManager.getInstance(this).getWorkInfoByIdLiveData(request.id)
-            .observe(this, Observer {
-
-                val status: String = it.state.name
-                Toast.makeText(this,status, Toast.LENGTH_SHORT).show()
-            })
-
-        //pef(sharedPreferences)
 
 
         setting.setOnClickListener {
@@ -70,23 +53,32 @@ class MainActivity :  BaseActivity() {
         var list = mutableListOf<String>()
 
 
-        viewmodel.getAllCites().observe(this, Observer {
-            //  Log.e("cites","${it.size}")
 
-            it.forEach {
-                list.add(it.cites)
+            if(viewmodel.checkInternetConnection(this)){
+                viewmodel.getAllCites().observe(this, Observer {
+                    //  Log.e("cites","${it.size}")
+
+                    it.forEach {
+                        list.add(it.cites)
 
 
-            }
-            viewmodel.getDataFromAPI(list).observe(this, {
-                if (it.size == list.size) {
-                    val viewPager = findViewById<ViewPager>(R.id.viewPager)
-                    viewPager.adapter = PageAdapter(supportFragmentManager, it, list)
-                }
+                    }
+                viewmodel.getDataFromAPI(list).observe(this, {
+                    if (it.size == list.size) {
+                        val viewPager = findViewById<ViewPager>(R.id.viewPager)
+                        viewPager.adapter = PageAdapter(supportFragmentManager, it, list)
+                    }
+
+                })
 
             })
+            }else{
 
-        })
+                Toast.makeText(this,
+                  getString(R.string.Internet),
+                    Toast.LENGTH_LONG).show()
+            }
+
 
         //  Log.e("list outer","${list.size}")
 
@@ -100,41 +92,10 @@ class MainActivity :  BaseActivity() {
 
     }
 
-    //localization Fun
-
-    fun pef(preferences: SharedPreferences){
-
-        //check the dark mood user option
-        if (preferences.getBoolean("DARKMOOD", false)) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
-
-        //check localization user option
-        if (preferences.getString(LOCALE, "en") == "ar") {
-            setLocale(this, "ar")
-        } else {
-            setLocale(this, "en")
-        }
 
 
     }
-    fun setLocale(activity: MainActivity, languageCode: String) {
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-        val resources = resources
-        val config: Configuration = resources.configuration
-        config.setLocale(locale)
-        with(resources) {
-            config.setLocale(locale)
-            updateConfiguration(config, displayMetrics)
 
-            startActivity(Intent(activity, MainActivity::class.java))
-            activity.finish()
-        }
-    }
-}
 
 
 

@@ -104,5 +104,11 @@ dependencies {
     //swipe Recyclerview
     implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
 
+    //lottie
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+    //test
+    testImplementation 'com.google.truth:truth:1.1.2'
+
 
 }

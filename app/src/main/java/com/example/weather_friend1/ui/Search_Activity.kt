@@ -1,5 +1,6 @@
 package com.example.weather_friend1.ui
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
@@ -34,6 +35,13 @@ class Search_Activity : BaseActivity() {
 
 
     }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val i = Intent(this,MainActivity()::class.java)
+        startActivity(i)
+        finish()
+    }
+
 
 }
 

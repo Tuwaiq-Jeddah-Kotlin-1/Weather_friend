@@ -1,5 +1,6 @@
 package com.example.weather_friend1.ui
 
+import android.content.Intent
 import android.graphics.Canvas
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather_friend1.Cites_Adapter
 import com.example.weather_friend1.R
+import com.example.weather_friend1.viewmodel.MainViewModel
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 
@@ -60,11 +62,11 @@ class CityUserFragment : Fragment() {
 
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     adapter.deletData(viewHolder.adapterPosition)
-                    //recyclerView.adapter!!.notifyItemRemoved(viewHolder.position)
-                    //recyclerView.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
+//                    recyclerView.adapter!!.notifyItemRemoved(viewHolder.position)
+//                    recyclerView.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
 
                     recyclerView.adapter = adapter
-                    Toast.makeText(context,"deleted", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,getString(R.string.delete), Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -86,8 +88,8 @@ class CityUserFragment : Fragment() {
                             )
                         )
                         .addActionIcon(R.drawable.ic_baseline_delete_sweep_24)
-                        .addSwipeRightLabel("Deleting the Item")
-                        .addSwipeLeftLabel("Deleting the Item")
+                        .addSwipeRightLabel(getString(R.string.DeleteSwip))
+                        .addSwipeLeftLabel(getString(R.string.DeleteSwip))
                         .setSwipeRightLabelColor(R.color.white)
                         .setSwipeLeftLabelColor(R.color.white)
                         .create()
@@ -119,6 +121,7 @@ class CityUserFragment : Fragment() {
 
 
     }
+
 
     }
 

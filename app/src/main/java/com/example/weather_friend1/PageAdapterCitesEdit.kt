@@ -2,6 +2,7 @@ package com.example.weather_friend1
 
     import android.content.Context
     import android.content.SharedPreferences
+    import android.provider.Settings.Global.getString
     import androidx.fragment.app.FragmentPagerAdapter
     import androidx.fragment.app.Fragment
     import androidx.fragment.app.FragmentManager
@@ -9,8 +10,7 @@ package com.example.weather_friend1
     import com.example.weather_friend1.ui.SearchCityFragment
     import com.google.rpc.context.AttributeContext
 
-class PageAdapterCitesEdit(context: Context,fm: FragmentManager) : FragmentPagerAdapter(fm) {
-    private var preferences: SharedPreferences = context.getSharedPreferences("sp", Context.MODE_PRIVATE)
+class PageAdapterCitesEdit(val context: Context,fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getCount(): Int {
             return 2;
@@ -37,16 +37,18 @@ class PageAdapterCitesEdit(context: Context,fm: FragmentManager) : FragmentPager
             when (position) {
                 0 -> {
 
-                    return "Your city"
+
+                    return context.getString(R.string.listUser)
 
                 }
                 1 -> {
-                    return R.string.SearchCity.toString()
+                    return context.getString(R.string.searChCity)
                 }
 
             }
             return super.getPageTitle(position)
         }
+
     }
 
 
