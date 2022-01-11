@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Weather_Friend1</string>
-    <string name="phone_language">لغة\ الجهاز (%s)</string>
+    <string name="phone_language">اللغة (%s)</string>
     <string name="register_button">ليس\ لديك حساب؟ <b>سجل هنا</b></string>
     <string name="city_name">مدينتك</string>
     <string name="have_an_account">لديك حساب بالفعل؟ <b>سجل الدخول هنا</b> </string>

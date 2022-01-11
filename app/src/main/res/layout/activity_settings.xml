@@ -52,6 +52,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:textStyle="bold"
                 android:paddingBottom="5dp"
                 android:layout_marginStart="23dp"
                 android:id="@+id/tvAppLocale"

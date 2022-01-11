@@ -45,7 +45,7 @@ class Sin_UpActivity : BaseActivity() {
         }
         RegisterButton.setOnClickListener {
         //check if empty before doing this line of code
-if (email.text.isEmpty()&&password.text.isEmpty()){
+if (email.text.isEmpty()||password.text.isEmpty()){
     Toast.makeText(
        this, getString(R.string.fill),
         Toast.LENGTH_SHORT
