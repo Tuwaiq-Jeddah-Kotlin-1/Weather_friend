@@ -8,9 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.weather_friend1.R
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 
 class Forget_Password_Activity : AppCompatActivity() {
     private lateinit var GoTOLogin: TextView

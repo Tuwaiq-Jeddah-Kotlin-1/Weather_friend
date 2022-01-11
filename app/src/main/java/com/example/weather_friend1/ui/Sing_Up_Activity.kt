@@ -14,7 +14,6 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import com.example.weather_friend1.BaseActivity
-import com.example.weather_friend1.MyWork
 import com.example.weather_friend1.R
 import com.google.firebase.auth.FirebaseAuth
 import java.util.concurrent.TimeUnit
@@ -67,12 +66,7 @@ if (email.text.isEmpty()&&password.text.isEmpty()){
                     Log.d(TAG, getString(R.string.Success))
                     //store in sharedpreference
                     sharedPreferences.edit().putString(EMAIL,email).apply()
-                    val request = OneTimeWorkRequestBuilder<MyWork>().build()
-                    val periodicWorker = PeriodicWorkRequest
-                        .Builder(MyWork::class.java, 15, TimeUnit.SECONDS)
-                        .build()
-                    WorkManager.getInstance().enqueue(periodicWorker)
-                    WorkManager.getInstance(this).getWorkInfoByIdLiveData(periodicWorker.id)
+
                     val i = Intent(this,MainActivity()::class.java)
                     startActivity(i)
                     finish()

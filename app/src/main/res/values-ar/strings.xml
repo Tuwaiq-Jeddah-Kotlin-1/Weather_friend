@@ -40,16 +40,16 @@
     <string name="skip"><![CDATA[تخطي->]]></string>
     <string name="listUser">قائمة المدن</string>
     <string name="searChCity">إبحث عن مدينة جديدة</string>
-    <string name="contact_us">Contact us</string>
-    <string name="fill">Please fill in the fields.</string>
-    <string name="Success">createUserWithEmail:success</string>
-    <string name="failure">createUserWithEmail:failure</string>
-    <string name="Authentication">Authentication failed.</string>
-    <string name="delete">deleted</string>
-    <string name="DeleteSwip">Delete</string>
-    <string name="enterEmailAddress">\"Please enter email address. \"</string>
-    <string name="uccessfullyToReset">\"Email sent successfully to reset your password! \"</string>
-    <string name="signInWithEmailSuccess">signInWithEmail:success</string>
+    <string name="contact_us">اتصل بنا </string>
+    <string name="fill">رجاء املاْ الحقول</string>
+    <string name="Success">تسجيل المستخدم ناجح</string>
+    <string name="failure">تسجيل المستخدم خاطئ</string>
+    <string name="Authentication">المصادقه خاطئه</string>
+    <string name="delete">حذف</string>
+    <string name="DeleteSwip">إحذف</string>
+    <string name="enterEmailAddress">\ادخل البريد الالكتروني \"</string>
+    <string name="uccessfullyToReset">\"تم استعادة كلمة المرور عبر البريد المدخل \"</string>
+    <string name="signInWithEmailSuccess">تسجيل الدخول ناجح</string>
     <string name="coma">,</string>
-    <string name="Internet">Check Internet</string>
+    <string name="Internet">تحقق من الانترنت</string>
 </resources>

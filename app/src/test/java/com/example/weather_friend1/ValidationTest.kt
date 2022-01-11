@@ -9,7 +9,7 @@ class ValidationTest{
     private lateinit var validation: Validation
     @Before
     fun setUp(){
-        validation= Validation()
+        validation= Validation
     }
     @Test
     fun cheakEmail(){

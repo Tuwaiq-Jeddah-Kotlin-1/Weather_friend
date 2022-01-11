@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#9fa0ff</color>
     <color name="colorAccent">#CBB2FE</color>
     <color name="colorbgScreen1">#E0C3FC</color>
+    <color name="colorPrimary2">#9690E6</color>
+    <color name="colorPrimaryDark2">#9495FB</color>
+    <color name="colorAccent2">#BA99FB</color>
+    <color name="colorbgScreen12">#C999F8</color>
     <color name="textHeadline">#434343</color>
     <color name="textDescription">#686868</color>
     <color name="lightGrey">#EAEAEA</color>

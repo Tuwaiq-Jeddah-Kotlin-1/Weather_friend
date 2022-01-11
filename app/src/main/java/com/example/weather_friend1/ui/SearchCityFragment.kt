@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,9 +18,7 @@ class SearchCityFragment : Fragment() {
     lateinit var adapterR: RecyclerView_Adapter
     private lateinit var viewmodel: MainViewModel
 
-    // private lateinit var binding: FragmentSearchCityBinding
     private lateinit var recyclerView: RecyclerView
-    private lateinit var TextV: TextView
     private lateinit var searchView: SearchView
 
 

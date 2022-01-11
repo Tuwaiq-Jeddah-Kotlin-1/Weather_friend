@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
-import com.example.weather_friend1.MyWork
 import com.example.weather_friend1.R
 import com.example.weather_friend1.viewmodel.MainViewModel
 import java.util.*

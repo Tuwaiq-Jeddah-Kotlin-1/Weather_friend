@@ -1,18 +1,12 @@
 package com.example.weather_friend1.ui
 
-import android.app.Activity
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.res.Resources
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.*
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.os.ConfigurationCompat
 import com.example.weather_friend1.*
-import java.lang.reflect.Array.get
 import java.util.*
 
 class Settings_Activity : BaseActivity() {

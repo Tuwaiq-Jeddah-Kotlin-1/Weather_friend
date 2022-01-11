@@ -1,19 +1,9 @@
 package com.example.weather_friend1.ui
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.weather_friend1.BaseActivity
-import com.example.weather_friend1.PageAdapter
 import com.example.weather_friend1.PageAdapterCitesEdit
 import com.example.weather_friend1.R
 import com.google.android.material.tabs.TabLayout

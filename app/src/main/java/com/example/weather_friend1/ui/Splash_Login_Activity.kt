@@ -3,7 +3,6 @@ package com.example.weather_friend1.ui
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -12,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.weather_friend1.BaseActivity
 import com.example.weather_friend1.R
+import com.example.weather_friend1.Validation
 import com.google.firebase.auth.FirebaseAuth
 
 private const val TAG = "EmailPassword"
@@ -72,9 +72,15 @@ class Activity_Splash_Login : BaseActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }else
-            {
-                signIn(email.text.toString().trim(), password.text.toString().trim())
+            { if(!Validation.email(email.text.toString().trim{it <=' '}) ){
+                Toast.makeText(this,getString(R.string.Authentication),
+                    Toast.LENGTH_SHORT).show()
+
+
+            }else{ signIn(email.text.toString().trim(), password.text.toString().trim())}
+
             }
+
 
 
         }
