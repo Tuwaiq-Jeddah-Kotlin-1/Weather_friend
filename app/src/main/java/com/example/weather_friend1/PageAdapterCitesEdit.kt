@@ -1,14 +1,13 @@
 package com.example.weather_friend1
 
     import android.content.Context
-    import android.content.SharedPreferences
-    import android.provider.Settings.Global.getString
+
     import androidx.fragment.app.FragmentPagerAdapter
     import androidx.fragment.app.Fragment
     import androidx.fragment.app.FragmentManager
     import com.example.weather_friend1.ui.CityUserFragment
     import com.example.weather_friend1.ui.SearchCityFragment
-    import com.google.rpc.context.AttributeContext
+
 
 class PageAdapterCitesEdit(val context: Context,fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
