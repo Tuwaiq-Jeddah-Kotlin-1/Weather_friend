@@ -45,7 +45,6 @@ class Cites_Adapter(
         citesUserList.removeAt(citesPosition)
         notifyItemRemoved(citesPosition)
 
-        Toast.makeText(context, "deleted", Toast.LENGTH_SHORT).show()
     }
 
 
