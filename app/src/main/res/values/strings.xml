@@ -1,3 +1,59 @@
 <resources>
-    <string name="app_name">Weather_Friend1</string>
+    <string name="app_name">Weather Friend</string>
+    <string name="phone_language">language(%s)</string>
+    <string name="register_button">Don\'t have an account? <b>Register Here</b></string>
+    <string name="city_name">City name</string>
+    <string name="have_an_account">Already have an account? <b>Login Here</b> </string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="forgetPassword">Forget Password</string>
+    <string name="yourEmail">Your Email</string>
+    <string name="reset">RESET</string>
+    <string name="goLogin">Go Login</string>
+    <string name="welcomeBack">Welcome Back</string>
+    <string name="signInToContinue">Sign in to continue</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgotPasswordQ">Forgot Password?</string>
+    <string name="deleteAccount">Delete account</string>
+    <string name="mode">mode</string>
+    <string name="logout">Logout</string>
+    <string name="registerYourAccount">Register your account</string>
+    <string name="toMakeTheMostOfApplication">To make the most of application</string>
+
+    <string name="signUp">Sign Up</string>
+
+
+    <string name="skip"><![CDATA[SKip->]]></string>
+    <string name="listUser">your cites</string>
+    <string name="searChCity">search new city</string>
+    <string name="contact_us">Contact us</string>
+    <string name="fill">Please fill in the fields.</string>
+    <string name="Success">createUserWithEmail:success</string>
+    <string name="failure">createUserWithEmail:failure</string>
+    <string name="Authentication">Authentication failed.</string>
+    <string name="delete">deleted</string>
+    <string name="DeleteSwip">Delete</string>
+    <string name="enterEmailAddress">\"Please enter email address. \"</string>
+    <string name="uccessfullyToReset">\"Email sent successfully to reset your password! \"</string>
+    <string name="signInWithEmailSuccess">signInWithEmail:success</string>
+    <string name="coma">,</string>
+    <string name="Internet">Check Internet</string>
+
+
 </resources>

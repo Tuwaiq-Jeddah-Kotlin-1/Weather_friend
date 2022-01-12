@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather_Friend1</string>
+    <string name="phone_language">اللغة (%s)</string>
+    <string name="register_button">ليس\ لديك حساب؟ <b>سجل هنا</b></string>
+    <string name="city_name">مدينتك</string>
+    <string name="have_an_account">لديك حساب بالفعل؟ <b>سجل الدخول هنا</b> </string>
+    <string name="title_activity_settings">الاعدادات</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">رسالة</string>
+    <string name="sync_header">تفعيل</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">توقيعك</string>
+    <string name="reply_title">أعادة</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">تفعيل الحاسب</string>
+    <string name="attachment_title">تحميل</string>
+    <string name="attachment_summary_on">تحميل
+    </string>
+    <string name="attachment_summary_off">تحميل يدوي</string>
+    <string name="forgetPassword">فقدان كلمة المرور</string>
+    <string name="yourEmail">حساب الايميل الخاص بك</string>
+    <string name="reset">اعادة</string>
+    <string name="goLogin">اذهب لتسجيل الدخول</string>
+    <string name="welcomeBack">مرحبا بعودتك</string>
+    <string name="signInToContinue">سجل حساب للمتابعه</string>
+    <string name="email">الايميل</string>
+    <string name="password">كلمة المرور</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="forgotPasswordQ">هل فقدت كلمة المرور؟</string>
+    <string name="deleteAccount">احذف الحساب</string>
+    <string name="mode">النمط</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="registerYourAccount">سجل حسابك</string>
+    <string name="toMakeTheMostOfApplication">مرحبا بك في صديق الطقس</string>
+    <string name="signUp">تفعيل الحساب</string>
+    <string name="skip"><![CDATA[تخطي->]]></string>
+    <string name="listUser">قائمة المدن</string>
+    <string name="searChCity">إبحث عن مدينة جديدة</string>
+    <string name="contact_us">اتصل بنا </string>
+    <string name="fill">رجاء املاْ الحقول</string>
+    <string name="Success">تسجيل المستخدم ناجح</string>
+    <string name="failure">تسجيل المستخدم خاطئ</string>
+    <string name="Authentication">المصادقه خاطئه</string>
+    <string name="delete">حذف</string>
+    <string name="DeleteSwip">إحذف</string>
+    <string name="enterEmailAddress">\ادخل البريد الالكتروني \"</string>
+    <string name="uccessfullyToReset">\"تم استعادة كلمة المرور عبر البريد المدخل \"</string>
+    <string name="signInWithEmailSuccess">تسجيل الدخول ناجح</string>
+    <string name="coma">,</string>
+    <string name="Internet">تحقق من الانترنت</string>
+</resources>
