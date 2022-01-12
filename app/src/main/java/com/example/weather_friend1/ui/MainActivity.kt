@@ -45,7 +45,7 @@ class MainActivity :  BaseActivity() {
 
 
 
-            if(viewmodel.checkInternetConnection(this)){
+            if(viewmodel.isNetworkConnected(this)){
                 viewmodel.getAllCites().observe(this,  {
                     //  Log.e("cites","${it.size}")
 
@@ -80,6 +80,7 @@ class MainActivity :  BaseActivity() {
 
 
     }
+    
 
 
 

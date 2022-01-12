@@ -86,7 +86,6 @@
                         android:id="@+id/img_weather_pictures"
                         android:layout_width="110dp"
                         android:layout_height="match_parent"
-
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true" />
 
