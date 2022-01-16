@@ -7,3 +7,6 @@ atmospheric predictions, and any updates on the weather.
 The weather application displays the temperature, humidity, and wind speed for several cities determined by the user,
 in addition to that the application sends a recommendation to the user after 12 hours containing a description of the weather condition
 also advises app sport two languages English/Arabic.
+
+
+mmmm
