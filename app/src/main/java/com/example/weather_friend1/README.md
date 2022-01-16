@@ -9,4 +9,3 @@ in addition to that the application sends a recommendation to the user after 12 
 also advises app sport two languages English/Arabic.
 
 
-mmmm
