@@ -23,6 +23,7 @@ class MainActivity :  BaseActivity() {
     private lateinit var viewmodel: MainViewModel
     private lateinit var AddCity: FloatingActionButton
     private lateinit var setting: ImageView
+    private lateinit var radar: ImageView
 
 
 
@@ -31,6 +32,7 @@ class MainActivity :  BaseActivity() {
         setContentView(R.layout.activity_main)
         AddCity = findViewById(R.id.search_City)
         setting = findViewById(R.id.setting)
+        radar = findViewById(R.id.radar)
 
 
 
@@ -39,6 +41,15 @@ class MainActivity :  BaseActivity() {
             startActivity(i)
 
         }
+        radar.setOnClickListener {
+            val i = Intent(this, Radar_Activity()::class.java)
+            startActivity(i)
+
+        }
+
+
+
+
         viewmodel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         val list = mutableListOf<String>()

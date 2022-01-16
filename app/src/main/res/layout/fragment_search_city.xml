@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:textCursorDrawable="@null"
+            app:queryHint="Enter city name "
             app:searchIcon="@drawable/ic_baseline_search_24"
             app:iconifiedByDefault="false"
             app:queryBackground="@null" />

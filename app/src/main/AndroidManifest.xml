@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Weather_Friend1"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.Radar_Activity"
+            android:exported="true" />
+        <activity
             android:name=".ui.Settings_Activity"
             android:exported="true" />
         <activity
