@@ -94,13 +94,12 @@
 
             <ImageView
                 android:layout_marginStart="23dp"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_baseline_share_24" />
 
             <TextView
                 android:layout_marginStart="23dp"
-
                 android:id="@+id/contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -108,18 +107,51 @@
                 android:text="@string/contact_us"
                 android:textStyle="bold" />
         </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/edittext_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:padding="10dp">
+            <ImageView
+                android:layout_marginStart="23dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_baseline_logout_24" />
+
+            <TextView
+                android:layout_marginStart="23dp"
+                android:id="@+id/LogOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/log_out"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/LogOut"
-        android:layout_width="124dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="40dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/buttonstyle"
-        android:text="@string/logout"
-        android:textColor="#fff" />
+
+<!--    <Button-->
+<!--        android:id="@+id/LogOut"-->
+<!--        android:layout_width="124dp"-->
+<!--        android:layout_height="53dp"-->
+<!--        android:layout_marginBottom="40dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="35dp"-->
+<!--        android:background="@drawable/buttonstyle"-->
+<!--        android:text="@string/logout"-->
+<!--        android:textColor="#fff" />-->
+
+    <TextView
+        android:layout_marginTop="70dp"
+        android:textSize="10sp"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/textHeadline"
+        android:layout_width="wrap_content"
+        android:text="All maps shown by /https://openweathermap.org/api"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

@@ -77,7 +77,8 @@
                             android:id="@+id/tv_degree"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
+                            android:layout_marginBottom="29dp"
+                            android:paddingTop="20dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:textSize="30sp" />

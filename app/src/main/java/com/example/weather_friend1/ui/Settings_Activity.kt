@@ -1,5 +1,6 @@
 package com.example.weather_friend1.ui
 
+import android.app.Activity
 import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
@@ -17,7 +18,7 @@ class Settings_Activity : BaseActivity() {
     private lateinit var radioGroup: RadioGroup
     private lateinit var radioop1: RadioButton
     private lateinit var radioop2: RadioButton
-    private lateinit var LogOut: Button
+    private lateinit var LogOut: TextView
     private lateinit var contactUs: TextView
 
 
@@ -34,6 +35,7 @@ class Settings_Activity : BaseActivity() {
         LogOut.setOnClickListener {
             val pre = storage.setPreferredLogout()
             pre.edit().clear().commit()
+
             val i = Intent(this,Activity_Splash_Login()::class.java)
             startActivity(i)
             finish()

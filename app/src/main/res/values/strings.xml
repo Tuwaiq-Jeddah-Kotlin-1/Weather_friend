@@ -54,6 +54,7 @@
     <string name="signInWithEmailSuccess">signInWithEmail:success</string>
     <string name="coma">,</string>
     <string name="Internet">Check Internet</string>
+    <string name="log_out">Log Out</string>
 
 
 </resources>
