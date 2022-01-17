@@ -23,7 +23,7 @@ class Radar_Activity : AppCompatActivity() {
         progressBar.max = 100
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
-        webView.loadUrl("https://openweathermap.org/weathermap?basemap=map&cities=true&layer=clouds&lat=21.8179&lon=39.0852&zoom=5")
+        webView.loadUrl("https://openweathermap.org/weathermap?basemap=map&cities=true&layer=clouds&&zoom=1")
         webView.webChromeClient = object : WebChromeClient() {
 
 

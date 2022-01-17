@@ -3,10 +3,15 @@ package com.example.weather_friend1.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebChromeClient
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.work.Data
@@ -29,6 +34,7 @@ private lateinit var Tvhumidity: TextView
 private lateinit var TvDegree: TextView
 private lateinit var TvWindSpeed: TextView
 private lateinit var iconDay: LottieAnimationView
+lateinit var webView: WebView
 
 class CityWeather(
     var cityWeather: WeatherModel,
@@ -83,7 +89,7 @@ class CityWeather(
 
         val notificationWork =
             OneTimeWorkRequest.Builder(NotificationWorker::class.java)
-                .setInitialDelay(12, TimeUnit.HOURS).setInputData(data)
+                .setInitialDelay(5, TimeUnit.MINUTES).setInputData(data)
                 .setInputData(quoteNotification)
                 .build()
 
@@ -95,7 +101,15 @@ class CityWeather(
             notificationWork
         ).enqueue()
 
+        webView = view.findViewById(R.id.webView1)
+        webView.webViewClient = WebViewClient()
+        webView.settings.javaScriptEnabled = true
+        webView.loadUrl("https://openweathermap.org/weathermap?basemap=map&cities=true&layer=clouds&lat=${cityWeather.coord.lat}&lon=${cityWeather.coord.lon}&zoom=3")
+        webView.webChromeClient = object : WebChromeClient() {
 
+
+
+        }
     }
 
     private fun IconLottie(weatherState: String) {
@@ -129,7 +143,7 @@ class CityWeather(
         description: String,
     ): String {
         val strWeather = when (weatherState) {
-            "01d" -> "in ${nameCity} \n Enjoy a time \uD83E\uDD29 that looks like sunny and wonderful weather: ${description}"
+            "01d" -> "in ${nameCity} \n Enjoy a time \uD83E\uDD29 that looks like weather: ${description}"
             "02d" -> " in ${nameCity} \uD83C\uDF28 weather: ${description}"
             "03d" -> " in ${nameCity} \nwhether seems ${description} \uD83C\uDF28 "
             "04d" -> " in ${nameCity} \nwhether seems ${description} \uD83C\uDF28 "

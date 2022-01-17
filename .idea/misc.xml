@@ -10,6 +10,7 @@
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/drawable/edittext_bg.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/drawable/gradientbackground.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/drawable/ic_baseline_cloud_queue_24.xml" value="0.1" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1" />
@@ -30,7 +31,7 @@
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/layout/fragment_2.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/layout/fragment_3.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/layout/fragment_city_user.xml" value="0.1" />
-        <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/layout/fragment_city_weather.xml" value="0.15896739130434784" />
+        <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/layout/fragment_city_weather.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/layout/fragment_scrolling_city_weather.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/nadia/AndroidStudioProjects/Weather_Friend1/app/src/main/res/layout/fragment_search_city.xml" value="0.1" />

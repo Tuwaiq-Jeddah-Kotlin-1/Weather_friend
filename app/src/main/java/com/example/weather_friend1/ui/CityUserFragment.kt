@@ -82,7 +82,7 @@ class CityUserFragment : Fragment() {
                         .addBackgroundColor(
                             ContextCompat.getColor(
                                 requireContext(),
-                                android.R.color.holo_red_light
+                                R.color.colorbgScreen1
                             )
                         )
                         .addActionIcon(R.drawable.ic_baseline_delete_sweep_24)
