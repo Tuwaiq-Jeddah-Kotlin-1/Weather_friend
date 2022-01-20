@@ -43,11 +43,11 @@ Account's Demo :Email/nadiaalmrashi@gmail.com - Password/123456
 
 ## UI Weather cites/Edit city
 
-<img src ="images/home.gif" width="400">&emsp;<img src ="images/cites.gif" width="400">&emsp;<img src ="swipdelete.gif" width="400">
+<img src ="images/home.gif" width="400">&emsp;<img src ="images/cites.gif" width="400">&emsp;<img src ="images/swipdelete.gif" width="400">
 
 ## UI Map weather /Setting
 
-<img src ="setting.gif" width="400">&emsp;<img src ="map.gif" width="400">
+<img src ="images/setting.gif" width="400">&emsp;<img src ="map.gif" width="400">
 
 
 
