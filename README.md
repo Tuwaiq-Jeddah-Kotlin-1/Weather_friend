@@ -8,7 +8,7 @@ In simple words, Weather app is a mobile app developed by Android -“Kotlin lan
  
 # Purpose Weather Friend App
 Weather app displays current weather for 200,000 cites also  Live map by “OpenWeatherMap”. The application sends a recommendation to the user that it contains a description of the weather with advice such as "Don't forget the umbrella". The app supports Arabic and English language
-
+## Video for application -> https://streamable.com/odz2rl
 # Design architecture and Libraries
 
 - Firebase Authentication
@@ -31,6 +31,8 @@ Weather app displays current weather for 200,000 cites also  Live map by “Open
 
 
 # Weather Friend’s Demo
+
+Account's Demo :Email/nadiaalmrashi@gmail.com - Password/123456
 
 ![signup](https://user-images.githubusercontent.com/91476868/149893361-e16af48c-4252-498e-a880-68d84e1f5f42.gif)
 ![forgetpass](https://user-images.githubusercontent.com/91476868/149893383-bffe612b-c97e-4974-b901-742289a1d4bc.gif)
