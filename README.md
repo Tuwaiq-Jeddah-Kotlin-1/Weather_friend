@@ -13,13 +13,21 @@ Weather app displays current weather for 200,000 cites also  Live map by “Open
 
 Firebase Authentication
 API & Retrofit &RXJava & Gson
+
 view pager
+
 lifecycle
+
 Room database -> Save the user's favorite cities 
+
 Lottie for animation -> for Weather image animation
+
 Coroutines Library
+
 Work manager -> for notifications
+
 Design patterns MVVM 
+
 Map from “OpenWeatherMap” 
 
 
