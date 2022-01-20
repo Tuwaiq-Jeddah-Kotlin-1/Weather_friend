@@ -45,7 +45,7 @@ Account's Demo :Email/nadiaalmrashi@gmail.com - Password/123456
 
 <img src ="images/home.gif" width="300">&emsp;<img src ="images/cites.gif" width="300">&emsp;<img src ="images/swipdelete.gif" width="300">
 
-## UI Map weather /Setting
+## UI Map weather /Setting/Search View
 
 <img src ="images/setting.gif" width="300">&emsp;<img src ="images/map.gif" width="300">&emsp;<img src ="images/searchview.gif" width="300">
 
