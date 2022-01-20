@@ -12,11 +12,10 @@ Weather app displays current weather for 200,000 cites also  Live map by “Open
 # Design architecture and Libraries
 
 Firebase Authentication
+
 API & Retrofit &RXJava & Gson
 
-view pager
-
-lifecycle
+Lifecycle
 
 Room database -> Save the user's favorite cities 
 
@@ -37,17 +36,16 @@ Map from “OpenWeatherMap”
 ![forgetpass](https://user-images.githubusercontent.com/91476868/149893383-bffe612b-c97e-4974-b901-742289a1d4bc.gif)
 
 
-![home](https://user-images.githubusercontent.com/91476868/149893667-af3c82e9-2527-4f9d-8d03-26f0c9ff8d58.gif)
-
 
 ![swipdelete](https://user-images.githubusercontent.com/91476868/149894263-45317ef9-d31b-4020-8d55-a719ff1a28f9.gif)
 ![setting](https://user-images.githubusercontent.com/91476868/149893847-362a91e1-ae7b-473e-ae70-6d9eddbc5fed.gif)
 
 
 
-
 ![map](https://user-images.githubusercontent.com/91476868/149894511-6563828a-8baf-4ef0-828f-8c257b5dff26.gif)
 ![cites](https://user-images.githubusercontent.com/91476868/149894217-b13ae47e-1f4c-42d8-90c5-5f7cd4d56bd4.gif)
+
+![home](https://user-images.githubusercontent.com/91476868/149893667-af3c82e9-2527-4f9d-8d03-26f0c9ff8d58.gif)
 
 
 
