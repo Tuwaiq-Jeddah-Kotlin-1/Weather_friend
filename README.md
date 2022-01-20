@@ -39,15 +39,15 @@ Account's Demo :Email/nadiaalmrashi@gmail.com - Password/123456
 
 ## UI Login/Sign-up/Forget password
 
-<img src ="images/login.gif" width="400">&emsp;<img src ="images/signup.giff" width="400">&emsp;<img src ="images/forgetpass.gif" width="400">
+<img src ="images/login.gif" width="300">&emsp;<img src ="images/signup.gif" width="300">&emsp; <img src ="images/forgetpass.gif" width="300">
 
 ## UI Weather cites/Edit city
 
-<img src ="images/home.gif" width="400">&emsp;<img src ="imagescites.gif" width="400">&emsp;<img src ="swipdelete.gif" width="400">
+<img src ="images/home.gif" width="300">&emsp;<img src ="images/cites.gif" width="300">&emsp;<img src ="images/swipdelete.gif" width="300">
 
 ## UI Map weather /Setting
 
-<img src ="setting.gif" width="400">&emsp;<img src ="map.gif" width="400">
+<img src ="images/setting.gif" width="300">&emsp;<img src ="images/map.gif" width="300">
 
 
 
