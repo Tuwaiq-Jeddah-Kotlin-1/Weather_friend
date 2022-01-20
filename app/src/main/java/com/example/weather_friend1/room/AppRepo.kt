@@ -2,7 +2,6 @@ package com.example.weather_friend1.ui
 
 
 import android.app.Application
-import com.example.weather_friend1.ui.AppDataBase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

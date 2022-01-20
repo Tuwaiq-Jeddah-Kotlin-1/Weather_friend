@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather_friend1.ui.CitesUser
 import com.example.weather_friend1.viewmodel.MainViewModel
@@ -28,7 +27,7 @@ class Cites_Adapter(
 
 
     override fun onBindViewHolder(holder: C_dapter, position: Int) {
-        val cites = citesUserList[position]
+       val cites = citesUserList[position]
         holder.citesUserTv.text = cites.cites
 
 

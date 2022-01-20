@@ -58,8 +58,6 @@ class MainActivity :  BaseActivity() {
 
             if(viewmodel.isNetworkConnected(this)){
                 viewmodel.getAllCites().observe(this,  {
-                    //  Log.e("cites","${it.size}")
-
                     it.forEach {
                         list.add(it.cites)
 
@@ -67,7 +65,7 @@ class MainActivity :  BaseActivity() {
                 viewmodel.getDataFromAPI(list).observe(this, {
                     if (it.size == list.size) {
                         val viewPager = findViewById<ViewPager>(R.id.viewPager)
-                        viewPager.adapter = PageAdapter(supportFragmentManager, it,this)
+                        viewPager.adapter = PageAdapter(supportFragmentManager, it.toSet().toList(),this)
                     }
 
                 })

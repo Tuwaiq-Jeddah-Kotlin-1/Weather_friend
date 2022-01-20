@@ -36,6 +36,7 @@ class CityUserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.rvRecycleView)
+        val listUser = mutableListOf<String>()
         Log.e("cites", "Cites Fragment")
 
 
@@ -44,7 +45,7 @@ class CityUserFragment : Fragment() {
 
 
         viewmodel.getAllCites().observe(viewLifecycleOwner, {
-            adapter = Cites_Adapter(requireContext(), it, viewmodel)
+            adapter = Cites_Adapter(requireContext(),it, viewmodel)
             recyclerView.adapter = adapter
             val callback: ItemTouchHelper.SimpleCallback = object :
                 ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT) {
