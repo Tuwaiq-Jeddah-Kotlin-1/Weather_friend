@@ -11,6 +11,11 @@ Weather app displays current weather for 200,000 cites also  Live map by “Open
 ##### Video for application -> https://streamable.com/odz2rl
 ##### Wire Frame Link -> https://www.figma.com/file/EaVeHBncxwntEe96AxqhAb/Untitled?node-id=0%3A1
 ##### SRS -> https://tuwaiqedusa0-my.sharepoint.com/:w:/g/personal/nadiyah_almurashi_jed_k1_tuwaiq_edu_sa/ESDYH8lrBG1HvHWhOn8Of_gBfJP_lTO_v0Gh1hep2I4l0Q?e=fszYC8
+
+## Logo
+
+<img width="116" alt="logo" src="https://user-images.githubusercontent.com/91476868/150679204-b4cdfaaf-5410-48fe-b0ce-73caf1d7e52b.png">
+
 ##### Design architecture and Libraries
 
 - Firebase Authentication
